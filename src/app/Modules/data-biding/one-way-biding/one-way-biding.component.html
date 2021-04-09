@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>name:{{ name }} - interpolation</h1>
+  <h1>title: {{ showTitle() }}</h1>
+  <p [innerHTML]="name + '' + showTitle()">- propertybiding</p>
+  <input value="{{ name }}" /><br />
+  <input [value]="name" />
+  <br />
+  <img src="{{ imgSrc }}" alt="" />
+  <img [src]="imgSrc" />
+  <button class="btn btn-success" (click)="changeName(tInput.value)">
+    set title
+  </button>
+  <br />
+  <input #tInput />
+</div>
