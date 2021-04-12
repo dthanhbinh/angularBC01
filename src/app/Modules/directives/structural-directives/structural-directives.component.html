@@ -1,0 +1,68 @@
+<h1>"ngIf": Dùng để ẩn hiện 1 tag/component</h1>
+<!-- trong ngIf biểu hiện biẻu thức -->
+<p *ngIf="isActive">Cybersoft</p>
+<button (click)="isActive = !isActive">Ấn em đi</button>
+<!--UI Khi đã đăng nhập-->
+<div *ngIf="isLogin; else loginTemplate">
+  <p>Welcome</p>
+  <button (click)="isLogin = false">Đăng xuất</button>
+</div>
+<!--UI Khi đăng xuất-->
+<!-- <div *ngIf="!isLogin">
+  <p>Please Login</p>
+  <button (click)="isLogin = true">Đăng nhập</button>
+</div> -->
+<!--Nội dung bên trong thẻ ng-template ko đc hiển thị ra giao diện-->
+<!-- Nội dung này chỉ được hiển thị ra khi ta gọi tới template variable của nó -->
+<ng-template #loginTemplate>
+  <div>
+    <p>Please Login</p>
+    <button (click)="isLogin = true">Đăng nhập</button>
+  </div>
+</ng-template>
+
+<h1>
+  "ngSwitch":Dùng để ẩn hiện 1 tag/component với 1 danh sách các điều kiện
+</h1>
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'primary'" class="bg-primary">Primary</p>
+  <!--có * thì nhận thành biến -> thêm dấu nháy đơn chuyển về chuỗi-->
+  <p *ngSwitchCase="'secondary'" class="bg-secondary">Secondary</p>
+  <p *ngSwitchCase="'success'" class="bg-success">Success</p>
+  <p *ngSwitchCase="'danger'" class="bg-danger">Danger</p>
+  <p *ngSwitchCase="'warning'" class="bg-warning">Warning</p>
+  <p *ngSwitchDefault>Default</p>
+</div>
+
+<select [value]="color" (change)="changeColor($event)">
+  <option value="">Default</option>
+  <option value="primary">primary</option>
+  <option value="secondary">Secondary</option>
+  <option value="success">Success</option>
+  <option value="danger">Danger</option>
+  <option value="warning">Warning</option>
+</select>
+
+<h1>"ngFor":Duyệt mảng</h1>
+<p *ngFor="let student of students; let idex = index; let sum = count">
+  <!--Cout as sum-->
+  {{ idex + 1 }}/{{ sum }} - Name: {{ student.name }} - Age:{{ student.age }}
+</p>
+
+<!--Kiểm tra students khac null hoặc undefine mới duyệt mảng-->
+<!-- Angular ko cho phép 2 structutal directive trong cùng 1 thẻ -->
+<!-- ng-container hoạt động tương tự thẻ fragment bên react,chỉ render nọi dung bên trong ra ngoài -->
+<ng-container *ngIf="students">
+  <p *ngFor="let student of students">
+    Name: {{ student.name }} - Age:{{ student.age }}
+  </p>
+</ng-container>
+<!-- Kết hợp ng-template và ng-container để tái sử dụng 1 đoạn UI -->
+<ng-template #templateAlert>
+  <div class="alert alert-danger">
+    <span>Something went wrong</span>
+  </div>
+</ng-template>
+<!-- Chỗ nào cần sử dụng ta sẽ gọi ng-container ra với directive ngtemplateOutlet -->
+<ng-container *ngTemplateOutlet="templateAlert"></ng-container>
+<ng-container *ngTemplateOutlet="templateAlert"></ng-container>

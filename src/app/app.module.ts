@@ -11,7 +11,7 @@ import { SidebarComponent } from './bai-tap-layout/sidebar/sidebar.component';
 import { BaiTapLayoutModule } from './Modules/bai-tap-layout/bai-tap-layout.module';
 import { OneWayBidingComponent } from './Modules/data-biding/one-way-biding/one-way-biding.component';
 import { DataBidingModule } from './Modules/data-biding/data-biding.module';
-
+import { DirectivesModule } from "./Modules/directives/directives.module";
 @NgModule({
 
   declarations: [//Các thẻ có thể sử dụng được cho module này
@@ -22,7 +22,8 @@ import { DataBidingModule } from './Modules/data-biding/data-biding.module';
   imports: [//Các module khác muốn sử dụng được trong module này phải import vào
     BrowserModule,
     BaiTapLayoutModule,
-    DataBidingModule
+    DataBidingModule,
+    DirectivesModule
   ],
   providers: [],//Nơi chứa cácc service muốn sử dụng đc cho module này khai báo tại đây
   bootstrap: [AppComponent]//Các component sử dụng được trong file index.html

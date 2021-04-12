@@ -1,0 +1,15 @@
+<h2>Change User Name</h2>
+<p>{{ username }}</p>
+<!-- //angular bắt buộc để dấu $ -->
+<input [value]="username" (input)="changeUserName($event)" />
+<!-- Để sử dụng two-way-biding cần import FormModule -->
+<h2>Change User Email</h2>
+<p>{{ email }}</p>
+<input [(ngModel)]="email" />
+<h2>Select</h2>
+<p>{{ color }}</p>
+<select [(ngModel)]="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
