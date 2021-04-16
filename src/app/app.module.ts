@@ -12,6 +12,8 @@ import { BaiTapLayoutModule } from './Modules/bai-tap-layout/bai-tap-layout.modu
 import { OneWayBidingComponent } from './Modules/data-biding/one-way-biding/one-way-biding.component';
 import { DataBidingModule } from './Modules/data-biding/data-biding.module';
 import { DirectivesModule } from "./Modules/directives/directives.module";
+import { BaiTap6GioHangModule } from './Modules/bai-tap6-gio-hang/bai-tap6-gio-hang.module';
+import { InteractionModule } from './Modules/interaction/interaction.module';
 @NgModule({
 
   declarations: [//Các thẻ có thể sử dụng được cho module này
@@ -23,7 +25,9 @@ import { DirectivesModule } from "./Modules/directives/directives.module";
     BrowserModule,
     BaiTapLayoutModule,
     DataBidingModule,
-    DirectivesModule
+    DirectivesModule,
+    BaiTap6GioHangModule,
+    InteractionModule
   ],
   providers: [],//Nơi chứa cácc service muốn sử dụng đc cho module này khai báo tại đây
   bootstrap: [AppComponent]//Các component sử dụng được trong file index.html
